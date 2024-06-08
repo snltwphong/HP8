@@ -25,7 +25,7 @@ public class Player_script : MonoBehaviour
     void Update()
     {
         if (Input.GetButtonDown("Jump") && !isDead && Mathf.Abs(rb.velocity.y) < 0.01)
-            rb.AddForce(Vector2.up * 450f);
+            rb.AddForce(Vector2.up * 600f);
 
         if (Input.GetKey(KeyCode.LeftShift))
             moveSpeed = 10f;
