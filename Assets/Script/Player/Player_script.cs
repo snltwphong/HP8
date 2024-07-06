@@ -57,6 +57,21 @@ public class Player_script : MonoBehaviour
         anim.SetBool("isAttacking", false);
 
     }*/
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Box")
+        {
+            Animator playerAnimator = GameObject.Find("heart").GetComponent<Animator>();
+            playerAnimator.SetBool("IsTouching", true);
+        }
+        if (collision.gameObject.tag == "Heart")
+        {
+            PlayerHealth script_Player = GameObject.Find("Knight").GetComponent<PlayerHealth>();
+            script_Player.health += 1;
+            Destroy(collision.gameObject);
+        }
+    }
+
     void FixedUpdate()
     {
         if (!isHurting)
