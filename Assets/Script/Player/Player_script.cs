@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.U2D.Animation;
 using UnityEngine;
 
 public class Player_script : MonoBehaviour
@@ -11,6 +12,7 @@ public class Player_script : MonoBehaviour
     int healthPoints = 3;
     bool isHurting, isDead;
     bool facingRight = true;
+    public Sprite openTreasure;
     Vector3 localScale;
     // Start is called before the first frame update
     void Start()
@@ -63,12 +65,21 @@ public class Player_script : MonoBehaviour
         {
             Animator playerAnimator = GameObject.Find("heart").GetComponent<Animator>();
             playerAnimator.SetBool("IsTouching", true);
+            
+            
         }
         if (collision.gameObject.tag == "Heart")
         {
             PlayerHealth script_Player = GameObject.Find("Knight").GetComponent<PlayerHealth>();
-            script_Player.health += 1;
+            script_Player.live += 1;
             Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.tag == "Treasure")
+        {
+            collision.gameObject.GetComponent<SpriteRenderer>().sprite = openTreasure;
+            Animator heartAnimator = GameObject.Find("heartTreasure").GetComponent<Animator>();
+            heartAnimator.SetBool("isTouching", true);
+
         }
     }
 

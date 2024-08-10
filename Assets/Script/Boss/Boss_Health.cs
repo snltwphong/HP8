@@ -15,7 +15,7 @@ public class Boss_Health : MonoBehaviour
         if (health > 0)
         {
             health -= damage;
-;
+            
 
 
         }

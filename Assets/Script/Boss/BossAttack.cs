@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossAttack : MonoBehaviour
 {
-    public int attackDamage = 10;
+    public int attackDamage = 1;
     public float attackRange = 5f;
     public LayerMask attackMask;
 /*    public Vector3 attackOffset;*/

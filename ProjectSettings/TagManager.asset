@@ -7,6 +7,9 @@ TagManager:
   - Boss
   - Heart
   - Box
+  - Treasure
+  - Lava
+  - heartTreasure
   layers:
   - Default
   - TransparentFX

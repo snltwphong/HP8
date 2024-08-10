@@ -1,23 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int health = 100;
-    public Image healthBar;
-    public float healthAmount = 100f;
+    public int live = 3;
+    public Image Heart;
+    public Image brokenHeart;
 
     public void TakeDamage(int damage)
     {
-        if(health > 0)
+        if(live > 0)
         {
-            health -= damage;
+            live -= damage;
             StartCoroutine(DamageAnimation());
-            healthAmount -= damage;
-            healthBar.fillAmount = healthAmount / 100f;
-
         }
         else
         {

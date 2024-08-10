@@ -56,7 +56,7 @@ public class Boss_Run : StateMachineBehaviour
 
         Vector2 target = new Vector2(player.position.x, rb.position.y);
         Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
-        if(playerHealth.health > 0)
+        if(playerHealth.live > 0)
         {
             rb.MovePosition(newPos);
         }
